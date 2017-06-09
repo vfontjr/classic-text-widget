@@ -1,12 +1,13 @@
-<?php namespace Classic_Text_Widget_P;
+<?php
 
 
 /**
  *
  * Classic Text Widget Class Fork to address 4.8 WordPress Update
  *
- */   
-  
+ */
+
+namespace VictorFontCG;
 
 if( ! defined( 'ABSPATH' ) ) exit;
 
@@ -70,25 +71,25 @@ class ClassicTextWidget extends \WP_Widget {
 	 * @return array Settings to save or bool false to cancel saving.
 	 */
     public function update( $new_instance, $old_instance ) {
-       
+
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
-		
+
 		if ( current_user_can( 'unfiltered_html' ) ) :
-		
+
 			$instance['text'] = $new_instance['text'];
-		
+
 		else:
-		
+
 			$instance['text'] = wp_kses_post( $new_instance['text'] );
-			
+
 		endif;
-		
+
 		$instance['filter'] = ! empty( $new_instance['filter'] );
-		
+
 		return $instance;
-       
-       
+
+
     }
 
 	/**
@@ -101,7 +102,7 @@ class ClassicTextWidget extends \WP_Widget {
 	 */
 
     public function form( $instance ) {
-    
+
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
 		$filter = isset( $instance['filter'] ) ? $instance['filter'] : 0;
 		$title = sanitize_text_field( $instance['title'] );
@@ -114,7 +115,7 @@ class ClassicTextWidget extends \WP_Widget {
 
 		<p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox"<?php checked( $filter ); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
 		<?php
-       
+
     }
 }
 
@@ -123,8 +124,8 @@ class ClassicTextWidget extends \WP_Widget {
  */
 function classic_text_widget_init() {
 
-    register_widget( 'Classic_Text_Widget_P\ClassicTextWidget' );
-    
+    register_widget( __NAMESPACE__ . '\ClassicTextWidget' );
+
 }
-add_action( 'widgets_init', 'Classic_Text_Widget_P\classic_text_widget_init' );
+add_action( 'widgets_init', __NAMESPACE__ . '\classic_text_widget_init' );
 

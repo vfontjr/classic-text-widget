@@ -5,12 +5,14 @@
  * Plugin Name:       Classic Text Widget
  * Description:       Adds the pre 4.8 Classic WordPress text widget just like the good old days.
  * Version:           1.0.0
- * Author:            Victor Font Consulting Group, LLC based on initial code from Christina Arasmo Beymer
+ * Author:            Victor Font Consulting Group, LLC.
  * Author URI:        https://victorfont.com/
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       classic-text-widget
  * Domain Path:       /languages
+ *
+ * Comment:            based on initial code from Christina Arasmo Beymer and WordPress 4.7.5 Text Widget
  *
  */
 

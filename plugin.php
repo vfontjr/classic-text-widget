@@ -10,8 +10,9 @@
  * Text Domain:       classic-text-widget
  * Domain Path:       /languages
  *
- */   
-  
+ */
+
+namespace VictorFontCG;
 
 if( ! defined( 'ABSPATH' ) ) exit;
 

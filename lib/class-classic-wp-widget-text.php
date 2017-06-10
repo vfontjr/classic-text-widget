@@ -34,7 +34,7 @@ class ClassicTextWidget extends \WP_Widget {
 	 */
     public function widget( $args, $instance ) {
 
-		$title = apply_filters( 'classic_widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
 		$widget_text = ! empty( $instance['text'] ) ? $instance['text'] : '';
 

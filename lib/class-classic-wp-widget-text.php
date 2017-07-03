@@ -18,10 +18,10 @@ class ClassicTextWidget extends \WP_Widget {
     */
     public function __construct() {
     
-        $class = apply_filters( 'classic_text_widget_class', '' );
-		
-        $widget_ops = array( 'classname' => 'classic-textwidget ' . $class . '', 'description' => __('The classic text widget for arbitrary html or text.', 'classic-text-widget') );
-        
+        $class = apply_filters( 'classic_text_widget_class', ' custom-classic-textwidget' );
+        $class = (substr($class, 0, 1) !== ' ') ? ' ' . $class : $class;
+
+        $widget_ops = array( 'classname' => 'classic-textwidget' . $class , 'description' => __('The classic text widget for arbitrary html or text.', 'classic-text-widget') );
         $control_ops = array( 'width' => 400, 'height' => 350 );
         parent::__construct( 'ClassicTextWidget', __( 'Classic Text Widget', 'classic-text-widget' ), $widget_ops, $control_ops );
     }
